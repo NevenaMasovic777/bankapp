@@ -1,0 +1,8 @@
+<div class="credit">
+  <p>
+    <b>Amount: </b>{{ credit.amount }} <b>Status: </b
+    ><span [ngStyle]="{ color: getColor(credit.status) }">{{
+      getStatus(credit.status)
+    }}</span>
+  </p>
+</div>

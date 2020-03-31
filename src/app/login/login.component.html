@@ -1,0 +1,13 @@
+<div class="form">
+  <form [formGroup]="LoginForm" (ngSubmit)="login()">
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Enter your personal ID"
+        formControlName="personal_id"
+        style="margin-bottom: 10px;"
+      /><br />
+      <input class="btn btn-success" type="submit" />
+    </div>
+  </form>
+</div>

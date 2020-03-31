@@ -1,0 +1,36 @@
+<div style="text-align: center;">
+  <div>
+    <button
+      (click)="logout()"
+      class="btn btn-primary"
+      style="margin-bottom: 10px;"
+    >
+      Logout
+    </button>
+  </div>
+  <form [formGroup]="ApplyForm" (ngSubmit)="apply()">
+    <div class="form-group">
+      <input
+        type="text"
+        placeholder="Enter amount"
+        formControlName="amount"
+        style="margin-bottom: 10px;"
+      /><br />
+      <p *ngIf="!ApplyForm.valid && ApplyForm.touched">Enter numeric value</p>
+      <input
+        class="btn btn-success"
+        type="submit"
+        value="Apply"
+        [disabled]="!ApplyForm.valid"
+      />
+    </div>
+  </form>
+  <div
+    *ngFor="
+      let credit of credits | paginate: { itemsPerPage: 10, currentPage: p }
+    "
+  >
+    <app-single-credit [credit]="credit"></app-single-credit>
+  </div>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
