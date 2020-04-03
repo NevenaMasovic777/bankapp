@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { AutorizationService } from "../service/autorization.service";
+import { AuthService} from "../service/auth.service";
 import { ApiService } from "../service/api.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class CreditListComponent implements OnInit {
   constructor(
-    private authService: AutorizationService,
+    private authService: AuthService,
     private apiService: ApiService,
     private route: ActivatedRoute,
     private router: Router
@@ -45,9 +45,5 @@ export class CreditListComponent implements OnInit {
     console.log(this.ApplyForm.value);
   }
 
-  logout() {
-    this.token = null;
-    localStorage.removeItem("token");
-    this.router.navigate(["login"]);
-  }
+
 }

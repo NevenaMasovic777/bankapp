@@ -1,7 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
-import { HomeComponent } from "./home/home.component";
+import { AuthGuardService} from "./guards/auth-guard.service";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CreditListComponent } from './credit-list/credit-list.component';
 
 const routes: Routes = [
   {
@@ -11,11 +13,17 @@ const routes: Routes = [
   },
   {
     path: "login",
-    component: LoginComponent
+    component: LoginComponent,
+    
   },
   {
     path: "home",
-    component: HomeComponent
+    component: CreditListComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: "**",
+    component: PageNotFoundComponent
   }
 ];
 

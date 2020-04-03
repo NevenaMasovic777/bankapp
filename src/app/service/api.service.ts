@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { AutorizationService } from "./autorization.service";
+import { AuthService } from "./auth.service";
 import { map } from "rxjs/operators";
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(
     private http: HttpClient,
-    private authService: AutorizationService
+    private authService: AuthService
   ) {
     this.url = "http://45.32.157.171:8200/api/";
   }
